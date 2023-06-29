@@ -3,72 +3,80 @@
 
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Main {
     private static File decryptedFile;
     private static File encryptedFile;
     private static int key;
+    private static final char[] ALPHABET = {'А','Б','В','Г','Д','У','Ё','Ж','З','И','Й','К',
+            'Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ы','Э','Ю','Я',
+            'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т',
+            'у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','.',',','"',':','-','!','?',' '};
+
     public static void main(String[] args) {
-        Window window = new Window(); //visualisation class with swing JFrame
-        window.getjFrame(); //getting custom frame-window
+        //Window window = new Window(); //visualisation class with swing JFrame
+        //window.getjFrame(); //getting custom frame-window
 
+        decryptedFile = getDecryptedFile();
+
+        key = getKey();
+
+        encryptedFile = getEncryptedFile();
+
+        Encryptor.encryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
+
+        Decryptor.decryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
+    }
+
+    private static File getDecryptedFile() {
         Scanner scanner = new Scanner(System.in);
-
+        int count = 0;
         System.out.println("Введите путь к исходному файлу: ");
-        decryptedFile = new File(scanner.nextLine());
-        System.out.println("Введите числовой ключ шифрования: ");
-        key = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Введите путь к зашифрованному файлу: ");
-        encryptedFile = new File(scanner.nextLine());
-
-        //encryptFileCaesarMethod(decryptedFile, encryptedFile, key);
-
-        //decryptFileCaesarMethod(decryptedFile, encryptedFile, key);
-
-    }
-
-    private static void decryptFileCaesarMethod(File decryptedFile, File encryptedFile, int key) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(encryptedFile));
-             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(decryptedFile))) {
-            while (bufferedReader.ready()) {
-                String readString = bufferedReader.readLine();
-                StringBuilder writeString = new StringBuilder();
-                for (int i = 0; i < readString.length(); i++) {
-                    writeString.append((char)((int)readString.charAt(i) - key));
-                }
-                bufferedWriter.write(writeString.toString() + "\n");
-                System.out.println("В файл записано: " + writeString);
+        while (true){
+            String file = scanner.nextLine();
+            if (file.equals("")) {
+                System.out.println("Введите путь к исходному файлу: ");
+                count++;
+            } else if (count > 3) {
+                throw new RuntimeException("Указанный Вами файл не найден. Программа завершается.");
+            } else {
+                decryptedFile = new File(file);
+                break;
             }
-        } catch (IOException e) {
-            System.out.println("Файл не найден.");
         }
+        return decryptedFile;
     }
 
-    private static void encryptFileCaesarMethod(File decryptedFile, File encryptedFile, int key){
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(decryptedFile));
-             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(encryptedFile))) {
-            while (bufferedReader.ready()) {
-                String readString = bufferedReader.readLine();
-                StringBuilder writeString = new StringBuilder();
-                for (int i = 0; i < readString.length(); i++) {
-                    String ch = String.valueOf(readString.charAt(i));
-                    if (ch.matches("[А-Яа-я!?., \"\n:-]")) {
-                        writeString.append((char)((int)readString.charAt(i) + key));
-                    } else {
-                        writeString.append(readString.charAt(i));
-                    }
-                }
-                bufferedWriter.write(writeString.toString() + "\n");
-                System.out.print("В файл записано: " + writeString);
-            }
-        } catch (IOException e) {
-            System.out.println("Файл не найден.");
-        }
+    private static File getEncryptedFile() {
+        String oldFileName = decryptedFile.getName();
+        String path = decryptedFile.getPath();
+        String newFileNamePath = path.substring(0, path.lastIndexOf("\\") + 1);
+        String newFileName = newFileNamePath +
+                oldFileName.substring(0, oldFileName.lastIndexOf(".")) +
+                "ENCRYPTED" +
+                oldFileName.substring(oldFileName.lastIndexOf("."));
+        return new File(newFileName);
     }
 
-
-
-
+    private static int getKey(){
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+        while (true) {
+            System.out.println("Введите ключ шифрования (число больше 0): ");
+            key = scanner.nextInt();
+            if (key <= 0) {
+                System.out.println("Введите числовой ключ больше нуля.");   //check key by zero
+                count++;
+            } else if (count > 3) {
+                throw new RuntimeException("Вы ввели неверный ключ.");      //break program after 3 wrong try
+            } else break;
+        }
+        if (key > ALPHABET.length) {                                        //trim key to length of alphabet (looping)
+            key = key % ALPHABET.length;
+        }
+        return key;
+    }
 }
