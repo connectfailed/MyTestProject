@@ -5,16 +5,15 @@ public class Encryptor {
     public Encryptor(){
     }
 
-    public static void encryptFileCaesarMethod(File decryptedFile, File encryptedFile, int key, char[] alphabet){
+    public static void encryptFileCaesarMethod(File decryptedFile, File encryptedFile, int key, String alphabet){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(decryptedFile));
              BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(encryptedFile))) {
             while (bufferedReader.ready()) {
                 String readString = bufferedReader.readLine();
                 StringBuilder writeString = new StringBuilder();
                 for (int i = 0; i < readString.length(); i++) {
-                    String ch = String.valueOf(readString.charAt(i));
-                    if (ch.matches("[А-Яа-я!?., \"\n:-]")) {
-                        writeString.append((char)((int)readString.charAt(i) + key));
+                    if (alphabet.indexOf(readString.charAt(i)) != -1) {
+                        writeString.append(alphabet.charAt(alphabet.indexOf(readString.charAt(i) + key)));
                     } else {
                         writeString.append(readString.charAt(i));
                     }

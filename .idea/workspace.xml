@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="535e98fc-c49c-449d-be27-ced7f00cc467" name="Changes" comment="Start project. Upload with testing files." />
+    <list default="true" id="535e98fc-c49c-449d-be27-ced7f00cc467" name="Changes" comment="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Decryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encryptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decryptFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/decryptFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/encryptFile.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,13 +40,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "onboarding.tips.debug.path": "C:/Users/Alex/Documents/JavaProjects/MyTestProject/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Alex/Documents/JavaProjects/MyTestProject/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -88,7 +96,31 @@
       <option name="project" value="LOCAL" />
       <updated>1687783255782</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="creating Decryptor class from method from Main.class">
+      <option name="closed" value="true" />
+      <created>1688044191450</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688044191450</updated>
+    </task>
+    <task id="LOCAL-00005" summary="creating Encryptor class from method from Main.class">
+      <option name="closed" value="true" />
+      <created>1688044216957</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1688044216957</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files.">
+      <option name="closed" value="true" />
+      <created>1688044447521</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688044447521</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -104,6 +136,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start project. Upload with testing files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start project. Upload with testing files." />
+    <MESSAGE value="creating Decryptor class from method from Main.class" />
+    <MESSAGE value="creating Encryptor class from method from Main.class" />
+    <MESSAGE value="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

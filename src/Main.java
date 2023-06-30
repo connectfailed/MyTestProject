@@ -3,18 +3,13 @@
 
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Main {
     private static File decryptedFile;
     private static File encryptedFile;
     private static int key;
-    private static final char[] ALPHABET = {'А','Б','В','Г','Д','У','Ё','Ж','З','И','Й','К',
-            'Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ы','Э','Ю','Я',
-            'а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т',
-            'у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я','.',',','"',':','-','!','?',' '};
+    private static final String ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя.,\":-!?\s";
 
     public static void main(String[] args) {
         //Window window = new Window(); //visualisation class with swing JFrame
@@ -74,8 +69,8 @@ public class Main {
                 throw new RuntimeException("Вы ввели неверный ключ.");      //break program after 3 wrong try
             } else break;
         }
-        if (key > ALPHABET.length) {                                        //trim key to length of alphabet (looping)
-            key = key % ALPHABET.length;
+        if (key > ALPHABET.length()) {                                        //trim key to length of alphabet (looping)
+            key = key % ALPHABET.length();
         }
         return key;
     }
