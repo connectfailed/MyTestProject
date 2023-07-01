@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="535e98fc-c49c-449d-be27-ced7f00cc467" name="Changes" comment="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files.">
+    <list default="true" id="535e98fc-c49c-449d-be27-ced7f00cc467" name="Changes" comment="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_53_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_53__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_57_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_57__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/decryptFileENCRYPTED.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Decryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encryptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decryptFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/decryptFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/encryptFile.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688044447521</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing">
+      <option name="closed" value="true" />
+      <created>1688133156426</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688133156426</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,7 +147,8 @@
     <MESSAGE value="creating Decryptor class from method from Main.class" />
     <MESSAGE value="creating Encryptor class from method from Main.class" />
     <MESSAGE value="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files." />
+    <MESSAGE value="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
