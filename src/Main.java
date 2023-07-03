@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     private static File decryptedFile;
     private static File encryptedFile;
-    private static int key;
+    private static int key = 0;
     private static final String ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя.,\":-!?\s";
 
     public static void main(String[] args) {
@@ -24,6 +24,8 @@ public class Main {
         Encryptor.encryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
 
         Decryptor.decryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
+
+        BruteForceCaesarSypher.bruteForce(encryptedFile, ALPHABET);
     }
 
     private static File getDecryptedFile() {
@@ -47,8 +49,8 @@ public class Main {
 
     private static File getEncryptedFile() {
         String oldFileName = decryptedFile.getName();
-        String path = decryptedFile.getPath();
-        String newFileNamePath = path.substring(0, path.lastIndexOf("\\") + 1);
+        String path = decryptedFile.getAbsolutePath();
+        String newFileNamePath = path.replace(oldFileName, "");
         String newFileName = newFileNamePath +
                 oldFileName.substring(0, oldFileName.lastIndexOf(".")) +
                 "ENCRYPTED" +
@@ -59,18 +61,16 @@ public class Main {
     private static int getKey(){
         Scanner scanner = new Scanner(System.in);
         int count = 0;
+        int keySize = ALPHABET.length();
         while (true) {
-            System.out.println("Введите ключ шифрования (число больше 0): ");
+            System.out.printf("Введите ключ шифрования (число от 1 до %d): ", keySize);
             key = scanner.nextInt();
-            if (key <= 0) {
-                System.out.println("Введите числовой ключ больше нуля.");   //check key by zero
+            if (count >= 3) {
+                throw new RuntimeException("Вы ввели неверный ключ. Программа будет завершена.");      //break program after 3 wrong try
+            } else if (key <= 0 || key > keySize) {
                 count++;
-            } else if (count > 3) {
-                throw new RuntimeException("Вы ввели неверный ключ.");      //break program after 3 wrong try
+                System.out.println();
             } else break;
-        }
-        if (key > ALPHABET.length()) {                                        //trim key to length of alphabet (looping)
-            key = key % ALPHABET.length();
         }
         return key;
     }
