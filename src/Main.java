@@ -6,29 +6,29 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    private static File decryptedFile;
-    private static File encryptedFile;
-    private static int key = 0;
+    static File decryptedFile;
+    static File encryptedFile;
+    private static int key;
     private static final String ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя.,\":-!?\s";
 
     public static void main(String[] args) {
         //Window window = new Window(); //visualisation class with swing JFrame
         //window.getjFrame(); //getting custom frame-window
 
-        decryptedFile = getDecryptedFile();
+        getDecryptedFile();
 
-        key = getKey();
+        getKey();
 
-        encryptedFile = getEncryptedFile();
+        getEncryptedFile();
 
         Encryptor.encryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
 
-        Decryptor.decryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
+        //Decryptor.decryptFileCaesarMethod(decryptedFile, encryptedFile, key, ALPHABET);
 
         BruteForceCaesarSypher.bruteForce(encryptedFile, ALPHABET);
     }
 
-    private static File getDecryptedFile() {
+    private static void getDecryptedFile() {
         Scanner scanner = new Scanner(System.in);
         int count = 0;
         System.out.println("Введите путь к исходному файлу: ");
@@ -37,41 +37,43 @@ public class Main {
             if (file.equals("")) {
                 System.out.println("Введите путь к исходному файлу: ");
                 count++;
-            } else if (count > 3) {
+            } else if (count >= 3) {
                 throw new RuntimeException("Указанный Вами файл не найден. Программа завершается.");
             } else {
                 decryptedFile = new File(file);
                 break;
             }
         }
-        return decryptedFile;
     }
 
-    private static File getEncryptedFile() {
+    private static void getEncryptedFile() {
         String oldFileName = decryptedFile.getName();
-        String path = decryptedFile.getAbsolutePath();
+        String path = decryptedFile.getPath();
         String newFileNamePath = path.replace(oldFileName, "");
         String newFileName = newFileNamePath +
                 oldFileName.substring(0, oldFileName.lastIndexOf(".")) +
                 "ENCRYPTED" +
                 oldFileName.substring(oldFileName.lastIndexOf("."));
-        return new File(newFileName);
+        encryptedFile = new File(newFileName);
     }
 
-    private static int getKey(){
+    private static void getKey(){
         Scanner scanner = new Scanner(System.in);
         int count = 0;
-        int keySize = ALPHABET.length();
-        while (true) {
-            System.out.printf("Введите ключ шифрования (число от 1 до %d): ", keySize);
-            key = scanner.nextInt();
-            if (count >= 3) {
-                throw new RuntimeException("Вы ввели неверный ключ. Программа будет завершена.");      //break program after 3 wrong try
-            } else if (key <= 0 || key > keySize) {
+        int tmp;
+        while (count < 3){
+            System.out.printf("Ведите числовой ключ от 1 до %d: \n", ALPHABET.length());
+            tmp = scanner.nextInt();
+            if (tmp <= 0 || tmp > ALPHABET.length()){
+                System.out.println("\n Вы ввели неправильное число. попробуйте еще раз.");
                 count++;
-                System.out.println();
-            } else break;
+            } else {
+                key = tmp;
+                break;
+            }
         }
-        return key;
+        if (count > 3) {
+            throw  new RuntimeException("Вы ввели неправильное число. Если вам не нужен правильный результат, мне - тоже...");
+        }
     }
 }

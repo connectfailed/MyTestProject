@@ -28,7 +28,7 @@ public class Decryptor {
                     }
                 }
                 bufferedWriter.write(sb + "\n");
-                System.out.print("В файл записано: " + sb);
+                System.out.print("\nВ файл записано: " + sb);
             }
         } catch (IOException e) {
             System.out.println("Файл не найден.");
