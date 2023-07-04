@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="535e98fc-c49c-449d-be27-ced7f00cc467" name="Changes" comment="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing">
-      <change afterPath="$PROJECT_DIR$/src/text.txt" afterDir="false" />
+    <list default="true" id="535e98fc-c49c-449d-be27-ced7f00cc467" name="Changes" comment="Fixed issues, i mean...&#10;working later...&#10;BruteForce method is working&#10;Need add checks in methods.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Window.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_53_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_53__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_57_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_06_2023_15_57__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BruteForceCaesarSypher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BruteForceCaesarSypher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Decryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encryptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/decryptFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Window.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +36,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2RjTF8vA01bjDQu9jVxRAW1UT8Z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Alex/Documents/JavaProjects/MyTestProject/src/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "onboarding.tips.debug.path": "C:/Users/Alex/Documents/JavaProjects/MyTestProject/src/Main.java"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -129,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688133156426</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed issues, i mean...&#10;working later...&#10;BruteForce method is working&#10;Need add checks in methods.">
+      <option name="closed" value="true" />
+      <created>1688388746602</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688388746602</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,7 +162,8 @@
     <MESSAGE value="creating Encryptor class from method from Main.class" />
     <MESSAGE value="Takeaway functions decrypt and encrypt file from Main.java&#10;Added char[] array alphabet for encrypting.&#10;Checking in methods getting key and files." />
     <MESSAGE value="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main.java - modify alphabet to String&#10;Encryptor.java - modify method using new logic&#10;Decryptor.java - modify method using new logic&#10;decryptFile.txt - adding ignored element for testing" />
+    <MESSAGE value="Fixed issues, i mean...&#10;working later...&#10;BruteForce method is working&#10;Need add checks in methods." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issues, i mean...&#10;working later...&#10;BruteForce method is working&#10;Need add checks in methods." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

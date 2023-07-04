@@ -6,16 +6,17 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
+
     static File decryptedFile;
     static File encryptedFile;
     private static int key;
     private static final String ALPHABET = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя.,\":-!?\s";
 
     public static void main(String[] args) {
-        //Window window = new Window(); //visualisation class with swing JFrame
-        //window.getjFrame(); //getting custom frame-window
 
-        getDecryptedFile();
+        new Window();
+
+        //getDecryptedFile();
 
         getKey();
 
