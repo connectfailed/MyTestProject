@@ -4,23 +4,24 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class BruteForceCaesarSypher {
-    private static int key = 1;
-    private static int count = 0;
-    private static File decryptedFile;
+
     private static char[] charsAlphabet;
+    private static int key = 1;
 
 
-    public static void bruteForce(File encryptedFile, String alphabet) {
+    public static void bruteForce(String alphabet) {
+        int attempt = 0;
         charsAlphabet = alphabet.toCharArray();
-        setDecryptedFile();
+        File encryptedFile = Util.getEncryptedFile();
+        File decryptedFile = Util.setDecryptedFile(encryptedFile);
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(encryptedFile))){  //trying to get right key
             while (bufferedReader.ready()) {
                 String readLines = bufferedReader.lines().collect(Collectors.joining());
                 while (!isKey(readLines)) {
                     key++;
-                    count++;
-                    if (count > charsAlphabet.length) {
+                    attempt++;
+                    if (attempt > charsAlphabet.length) {
                         throw new RuntimeException("Данным способом расшифровать файл не получилось.");
                     }
                 }
@@ -71,11 +72,5 @@ public class BruteForceCaesarSypher {
         String testString = sb.toString();
         return testString.endsWith("!") || testString.contains(", ") || testString.contains("ет ")
                 || testString.contains("ь ") || testString.contains("ит ");
-    }
-
-    private static void setDecryptedFile() {                                           //make new decrypted file method
-        String oldFileName = Main.encryptedFile.getPath();
-        String newFileName = oldFileName.replace("ENCRYPTED", "DECRYPTED");
-        decryptedFile = new File(newFileName);
     }
 }

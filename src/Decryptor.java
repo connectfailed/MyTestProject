@@ -3,16 +3,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Decryptor {
-
-    public static void decryptFileCaesarMethod(File decryptedFile, File encryptedFile, int key, String alphabet) {
+    public static void decryptFileCaesarMethod(String alphabet) {
+        File encryptedFile = Util.getEncryptedFile();
+        File decryptedFile = Util.getDecryptedFile();
+        int key = Util.setKey(alphabet);
         char[] chars = alphabet.toCharArray();
-        ArrayList<Character> arrayList = new ArrayList<>();
+        ArrayList<Character> shiftedAlphabet = new ArrayList<>();
 
         for (char ch : chars) {
-            arrayList.add(ch);
+            shiftedAlphabet.add(ch);
         }
 
-        Collections.rotate(arrayList, -key);
+        Collections.rotate(shiftedAlphabet, -key);
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(encryptedFile));
              BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(decryptedFile))) {
@@ -22,13 +24,12 @@ public class Decryptor {
                 for (int i = 0; i < stringRead.length(); i++) {
                     int index = alphabet.indexOf(stringRead.charAt(i));
                     if (index != -1) {
-                        sb.append(arrayList.get(alphabet.indexOf(stringRead.charAt(i))));
+                        sb.append(shiftedAlphabet.get(index));
                     } else {
                         sb.append(stringRead.charAt(i));
                     }
                 }
                 bufferedWriter.write(sb + "\n");
-                System.out.print("\nВ файл записано: " + sb);
             }
         } catch (IOException e) {
             System.out.println("Файл не найден.");

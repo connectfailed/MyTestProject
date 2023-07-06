@@ -4,15 +4,17 @@ import java.util.Collections;
 
 public class Encryptor {
 
-    public static void encryptFileCaesarMethod(File decryptedFile, File encryptedFile, int key, String alphabet){
+    public static void encryptFileCaesarMethod(String alphabet){
+        File decryptedFile = Util.getDecryptedFile();
+        File encryptedFile = Util.setEncryptedFile(decryptedFile);
+        int key = Util.setKey(alphabet);
         char[] charsAlphabet = alphabet.toCharArray();
-        ArrayList<Character> arrayList = new ArrayList<>();
-
+        ArrayList<Character> shiftedAlphabet = new ArrayList<>();
         for (char ch : charsAlphabet) {
-            arrayList.add(ch);
+            shiftedAlphabet.add(ch);
         }
 
-        Collections.rotate(arrayList, key);
+        Collections.rotate(shiftedAlphabet, key);
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(decryptedFile));
              BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(encryptedFile))) {
@@ -22,16 +24,16 @@ public class Encryptor {
                 for (int i = 0; i < stringRead.length(); i++) {
                     int index = alphabet.indexOf(stringRead.charAt(i));
                     if (index != -1) {
-                        sb.append(arrayList.get(alphabet.indexOf(stringRead.charAt(i))));
+                        sb.append(shiftedAlphabet.get(index));
                     } else {
                         sb.append(stringRead.charAt(i));
                     }
                 }
                 bufferedWriter.write(sb + "\n");
-                System.out.print("\nВ файл записано: " + sb);
             }
         } catch (IOException e) {
             System.out.println("Файл не найден.");
         }
+        System.out.println("текст успешно зашифрован.");
     }
 }
