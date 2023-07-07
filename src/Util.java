@@ -25,8 +25,8 @@ public class Util {
         File decryptedFile = Path.of("").toFile();
         Scanner scanner = new Scanner(System.in);
         int attempt = 0;
-        System.out.println("Введите путь к исходному файлу: ");
         while (!decryptedFile.isFile()){
+            System.out.println("Введите путь к исходному файлу: ");
             attempt++;
             decryptedFile = Path.of(scanner.nextLine()).toFile();
             if (attempt >= 3) {

@@ -7,10 +7,11 @@ public class BruteForceCaesarSypher {
 
     private static char[] charsAlphabet;
     private static int key = 1;
+    private static int concurrence;
+    private static int attempt;
 
 
     public static void bruteForce(String alphabet) {
-        int attempt = 0;
         charsAlphabet = alphabet.toCharArray();
         File encryptedFile = Util.getEncryptedFile();
         File decryptedFile = Util.setDecryptedFile(encryptedFile);
@@ -21,7 +22,7 @@ public class BruteForceCaesarSypher {
                 while (!isKey(readLines)) {
                     key++;
                     attempt++;
-                    if (attempt > charsAlphabet.length) {
+                    if (attempt > charsAlphabet.length*2) {
                         throw new RuntimeException("Данным способом расшифровать файл не получилось.");
                     }
                 }
@@ -56,8 +57,9 @@ public class BruteForceCaesarSypher {
         System.out.printf("Файл %s успешно расшифрован.", encryptedFile);
     }
 
-    private static boolean isKey(String readLine){                                      //checking key method
+    private static boolean isKey(String readLine){                          //checking key method
         ArrayList<Character> shiftedAlphabet = new ArrayList<>();
+        concurrence = 0;
         for (char ch : charsAlphabet) {
             shiftedAlphabet.add(ch);
         }
@@ -70,7 +72,18 @@ public class BruteForceCaesarSypher {
             } else sb.append(readLine.charAt(i));
         }
         String testString = sb.toString();
-        return testString.endsWith("!") || testString.contains(", ") || testString.contains("ет ")
-                || testString.contains("ь ") || testString.contains("ит ");
+        if (testString.endsWith("!") && testString.contains("ет ") || testString.contains("ит ")) {
+            concurrence+=50;
+        }
+        if (testString.contains(", ") && testString.contains("ь ") && (testString.contains("ет ") || testString.contains("ит "))) {
+            concurrence+=50;
+        }
+        if (testString.contains("ь ")) {
+            concurrence++;
+        }
+        if (testString.contains("что") || testString.contains("кто") || testString.contains("без") || testString.contains("для") || testString.contains("над")) {
+            concurrence+=50;
+        }
+        return concurrence >= 50;
     }
 }

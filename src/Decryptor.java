@@ -5,7 +5,7 @@ import java.util.Collections;
 public class Decryptor {
     public static void decryptFileCaesarMethod(String alphabet) {
         File encryptedFile = Util.getEncryptedFile();
-        File decryptedFile = Util.getDecryptedFile();
+        File decryptedFile = Util.setDecryptedFile(encryptedFile);
         int key = Util.setKey(alphabet);
         char[] chars = alphabet.toCharArray();
         ArrayList<Character> shiftedAlphabet = new ArrayList<>();
@@ -34,5 +34,6 @@ public class Decryptor {
         } catch (IOException e) {
             System.out.println("Файл не найден.");
         }
+        System.out.println("текст успешно расшифрован.");
     }
 }
